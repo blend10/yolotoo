@@ -133,7 +133,7 @@ const TeamGrid2 = () => {
                 }`}
               >
                 <p
-                  className={`text-gray-200 text-sm leading-relaxed mb-4 transition-opacity duration-500 delay-100 ${
+                  className={`text-gray-200 text-[12px] md:text-sm leading-relaxed mb-4 transition-opacity duration-500 delay-100 ${
                     isActive
                       ? "opacity-100"
                       : "opacity-0 group-hover:opacity-100"
