@@ -57,7 +57,7 @@ const HeroPage = () => {
         {/* MOBILE VIEW (Slider with Arrows)          */}
         {/* Visible on Mobile, Hidden on Desktop      */}
         {/* ========================================= */}
-        <div className="md:hidden flex flex-col items-center justify-center mt-40 w-full gap-6">
+        <div className="md:hidden flex flex-col items-center justify-center mt-20 w-full gap-6">
           {/* The Active Card */}
           <div className="flex w-full max-w-[550px] flex-col items-start justify-between gap-6 rounded-2xl bg-gradient-to-l from-[#D7D7D7]/10 to-[#313131]/20 p-8 backdrop-blur-sm animate-in fade-in slide-in-from-bottom-4 duration-500">
             <h1 className="text-[24px] leading-tight text-white">
