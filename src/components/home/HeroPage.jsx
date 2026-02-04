@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 const HeroPage = () => {
   // MOBILE STATE ONLY
@@ -24,6 +25,7 @@ const HeroPage = () => {
         "The Ferretti 94 YOLO TOO is a 30-meter masterpiece of luxury, meticulously refitted in 2024 to offer an unparalleled yachting experience. Accommodating 10 guests in four elegant en-suite cabins, it blends timeless sophistication with modern comfort.",
       buttonText: "Contact Us",
       icon: "/images/whatsapp.svg",
+      href: "tel:+34 678 98 36 85", // Phone link for first slide
     },
     {
       id: 1,
@@ -33,14 +35,15 @@ const HeroPage = () => {
         </>
       ),
       description:
-        "Indulge in the jacuzzi on the upper deck, while an elite crew of five caters to your every need. Set sail through the breathtaking Balearic Islands, where crystal-clear waters, secluded coves, and world-class nightlife create the ultimate escape. YOLO TOO isn’t just a yacht—it’s a statement of refined living.",
+        "Indulge in the jacuzzi on the upper deck, while an elite crew of five caters to your every need. Set sail through the breathtaking Balearic Islands, where crystal-clear waters, secluded coves, and world-class nightlife create the ultimate escape. YOLO TOO isn't just a yacht—it's a statement of refined living.",
       buttonText: "View Brochure",
       icon: "/images/arrow2.svg",
+      href: "/brochure", // Brochure link for second slide
     },
   ];
 
   return (
-    <div className=" h-screen w-full overflow-hidden">
+    <div className="h-screen w-full overflow-hidden">
       <video
         src="https://res.cloudinary.com/dc00mvv7f/video/upload/v1770108021/heroVideo_gislco.mp4"
         className="absolute inset-0 h-full w-full object-cover"
@@ -66,24 +69,31 @@ const HeroPage = () => {
             <p className="text-xs leading-relaxed text-gray-200">
               {content[activeSlide].description}
             </p>
-            <button className="rounded-full bg-white px-8 py-3 font-medium text-[#00183A] text-[18px] w-full transition active:scale-95">
-              <div className="flex flex-row items-center justify-center gap-4">
-                <h1>{content[activeSlide].buttonText}</h1>
-                <Image
-                  src={content[activeSlide].icon}
-                  alt="icon"
-                  width={24}
-                  height={24}
-                />
-              </div>
-            </button>
+            {/* Mobile button now properly wrapped in Link */}
+            <Link href={content[activeSlide].href}>
+              <button className="rounded-full bg-white px-8 py-3 font-medium text-[#00183A] text-[18px] w-full transition active:scale-95 hover:bg-gray-200 hover:scale-105">
+                <div className="flex flex-row items-center justify-center gap-4">
+                  <h1>{content[activeSlide].buttonText}</h1>
+                  <Image
+                    src={content[activeSlide].icon}
+                    alt="icon"
+                    width={24}
+                    height={24}
+                  />
+                </div>
+              </button>
+            </Link>
           </div>
 
           {/* Navigation Arrows */}
           <div className="flex items-center gap-6">
             <button
               onClick={prevSlide}
-              className={`p-3 rounded-full bg-white/20 backdrop-blur-md text-white transition-all ${activeSlide === 0 ? "opacity-50 cursor-not-allowed" : "active:scale-90"}`}
+              className={`p-3 rounded-full bg-white/20 backdrop-blur-md text-white transition-all ${
+                activeSlide === 0
+                  ? "opacity-50 cursor-not-allowed"
+                  : "active:scale-90"
+              }`}
               disabled={activeSlide === 0}
             >
               <ChevronLeft size={28} />
@@ -92,16 +102,24 @@ const HeroPage = () => {
             {/* Dots */}
             <div className="flex gap-2">
               <div
-                className={`h-2 w-2 rounded-full transition-colors ${activeSlide === 0 ? "bg-white" : "bg-white/40"}`}
+                className={`h-2 w-2 rounded-full transition-colors ${
+                  activeSlide === 0 ? "bg-white" : "bg-white/40"
+                }`}
               />
               <div
-                className={`h-2 w-2 rounded-full transition-colors ${activeSlide === 1 ? "bg-white" : "bg-white/40"}`}
+                className={`h-2 w-2 rounded-full transition-colors ${
+                  activeSlide === 1 ? "bg-white" : "bg-white/40"
+                }`}
               />
             </div>
 
             <button
               onClick={nextSlide}
-              className={`p-3 rounded-full bg-white/20 backdrop-blur-md text-white transition-all ${activeSlide === 1 ? "opacity-50 cursor-not-allowed" : "active:scale-90"}`}
+              className={`p-3 rounded-full bg-white/20 backdrop-blur-md text-white transition-all ${
+                activeSlide === 1
+                  ? "opacity-50 cursor-not-allowed"
+                  : "active:scale-90"
+              }`}
               disabled={activeSlide === 1}
             >
               <ChevronRight size={28} />
@@ -115,60 +133,64 @@ const HeroPage = () => {
         {/* ========================================= */}
         <div className="hidden md:flex w-full max-w-450 flex-row flex-wrap items-center justify-center gap-8 md:justify-between">
           {/* First Box */}
-          <div className="flex max-w-[550px] flex-col items-start sticky  justify-between gap-6 rounded-2xl  bg-gradient-to-l from-[#D7D7D7]/10 to-[#313131]/20 p-8 backdrop-blur-sm transition-all hover:bg-white/20">
-            <h1 className="text-[24px] md:text-[40px]  leading-tight text-white md:text-[60px]">
+          <div className="flex max-w-[550px] flex-col items-start sticky justify-between gap-6 rounded-2xl bg-gradient-to-l from-[#D7D7D7]/10 to-[#313131]/20 p-8 backdrop-blur-sm transition-all hover:bg-white/20">
+            <h1 className="text-[24px] md:text-[40px] leading-tight text-white md:text-[60px]">
               Refined Luxury <br /> Cabins
             </h1>
-            <p className=" text-xs md:text-lg leading-relaxed text-gray-200">
+            <p className="text-xs md:text-lg leading-relaxed text-gray-200">
               The Ferretti 94 YOLO TOO is a 30-meter masterpiece of luxury,
               meticulously refitted in 2024 to offer an unparalleled yachting
               experience. Accommodating 10 guests in four elegant en-suite
               cabins, it blends timeless sophistication with modern comfort.
             </p>
-            <button className="rounded-full bg-white px-8 py-3 font-medium text-[#00183A] text-[18px]  transition hover:bg-gray-200 hover:scale-105">
-              <div className="flex flex-row items-center justify-start gap-4">
-                <div>
-                  <h1 className="">Contact Us</h1>
+            <Link href="tel:+34 678 98 36 85">
+              <button className="rounded-full bg-white px-8 py-3 font-medium text-[#00183A] text-[18px] transition hover:bg-gray-200 hover:scale-105">
+                <div className="flex flex-row items-center justify-start gap-4">
+                  <div>
+                    <h1 className="">Contact Us</h1>
+                  </div>
+                  <div>
+                    <Image
+                      src="/images/whatsapp.svg"
+                      alt="logo"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
                 </div>
-                <div>
-                  <Image
-                    src="/images/whatsapp.svg"
-                    alt="logo"
-                    width={24}
-                    height={24}
-                  ></Image>
-                </div>
-              </div>
-            </button>
+              </button>
+            </Link>
           </div>
 
           {/* Second Box */}
-          <div className="flex max-w-[550px] mt-20 md:mt-40 flex-col items-start justify-between gap-6 rounded-2xl  bg-gradient-to-l from-[#D7D7D7]/10 to-[#313131]/20 p-8 backdrop-blur-sm transition-all hover:bg-white/20">
-            <h1 className="text-[24px] md:text-[40px]  leading-tight text-white md:text-[60px]">
+          <div className="flex max-w-[550px] mt-20 md:mt-40 flex-col items-start justify-between gap-6 rounded-2xl bg-gradient-to-l from-[#D7D7D7]/10 to-[#313131]/20 p-8 backdrop-blur-sm transition-all hover:bg-white/20">
+            <h1 className="text-[24px] md:text-[40px] leading-tight text-white md:text-[60px]">
               Beyond <br /> Yachting
             </h1>
             <p className="text-xs md:text-lg leading-relaxed text-gray-200">
               Indulge in the jacuzzi on the upper deck, while an elite crew of
               five caters to your every need. Set sail through the breathtaking
               Balearic Islands, where crystal-clear waters, secluded coves, and
-              world-class nightlife create the ultimate escape. YOLO TOO isn’t
-              just a yacht—it’s a statement of refined living.
+              world-class nightlife create the ultimate escape. YOLO TOO isn't
+              just a yacht—it's a statement of refined living.
             </p>
-            <button className="rounded-full bg-white px-8 py-3 font-medium text-[#00183A] text-[18px]  transition hover:bg-gray-200 hover:scale-105">
-              <div className="flex flex-row items-center justify-start gap-4">
-                <div>
-                  <h1 className="">View Brochure</h1>
+            <Link href="/brochure">
+              <button className="rounded-full bg-white px-8 py-3 font-medium text-[#00183A] text-[18px] transition hover:bg-gray-200 hover:scale-105">
+                <div className="flex flex-row items-center justify-start gap-4">
+                  <div>
+                    <h1 className="">View Brochure</h1>
+                  </div>
+                  <div>
+                    <Image
+                      src="/images/arrow2.svg"
+                      alt="arrow"
+                      width={24}
+                      height={24}
+                    />
+                  </div>
                 </div>
-                <div>
-                  <Image
-                    src="/images/arrow2.svg"
-                    alt="arrow  "
-                    width={24}
-                    height={24}
-                  ></Image>
-                </div>
-              </div>
-            </button>
+              </button>
+            </Link>
           </div>
         </div>
       </div>
