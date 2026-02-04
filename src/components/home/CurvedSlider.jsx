@@ -101,7 +101,6 @@ const DraggableCurvedSlider = () => {
                 alt={slide.alt}
                 fill
                 className="object-cover pointer-events-none"
-                sizes="(max-width: 768px) 85vw, (max-width: 1200px) 45vw, 33vw"
                 priority={slide.id <= 2}
               />
               <div className="absolute inset-0 bg-black/5 pointer-events-none"></div>

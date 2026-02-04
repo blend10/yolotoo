@@ -33,7 +33,7 @@ const galleryData = [
     title: "Master Suite",
     description:
       "The master suite offers unparalleled luxury with a private terrace, king-sized bed, and premium amenities.",
-    image: "/images/photo4.jpg",
+    image: "/images/photo4.1.jpg",
     category: "Interior",
   },
   {

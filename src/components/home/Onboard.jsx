@@ -22,7 +22,7 @@ const contentData = [
     image: "/images/section2.png",
     width: 848,
     height: 693,
-    desktopPosition: "top-[25%] left-0",
+    desktopPosition: "top-[15%] left-0",
     slideFrom: "left",
   },
   {
@@ -32,7 +32,7 @@ const contentData = [
     image: "/images/section3.jpg",
     width: 848,
     height: 693,
-    desktopPosition: "top-[50%] right-10",
+    desktopPosition: "top-[45%] right-10",
     slideFrom: "right",
   },
   {
@@ -200,7 +200,7 @@ const Onboard = () => {
       </div>
 
       {/* --- DESKTOP LAYOUT (Absolute Positions + Smooth Reveal) --- */}
-      <div className="hidden lg:block relative w-full h-[2800px]">
+      <div className="hidden lg:block relative w-full h-[2000px]">
         {contentData.map((item) => (
           <SmoothReveal
             key={`desktop-${item.id}`}
