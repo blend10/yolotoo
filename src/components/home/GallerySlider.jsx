@@ -6,49 +6,49 @@ import Image from "next/image";
 const galleryData = [
   {
     id: 1,
-    title: "Cabins",
+    title: "Your Private Retreat",
     description:
-      "Our eight spacious, above-deck cabins accommodate up to 16 guests in quiet comfort. Each features floor-to-ceiling windows.",
+      "Spacious above-deck cabins designed for ultimate comfort and privacy, featuring elegant interiors, abundant natural light, and panoramic sea views that create a serene onboard escape.",
     image: "/images/photo1.jpg",
     category: "Exterior",
   },
   {
     id: 2,
-    title: "Dining Area",
+    title: "Dining & Social Experience",
     description:
-      "Experience world-class dining with panoramic views of the ocean, served by our expert culinary team.",
+      "Enjoy refined onboard dining in an open, social setting, where exceptional service, fresh cuisine, and panoramic sea views come together for unforgettable moments.",
     image: "/images/photo2.jpg",
     category: "Interior",
   },
   {
     id: 3,
-    title: "Sun Deck",
+    title: "Interior Living Spaces",
     description:
-      "Relax on our expansive sun deck featuring plush loungers and a jacuzzi for the ultimate unwinding experience.",
+      "A sophisticated onboard lounge combining modern design, inviting seating, and a relaxed dining atmosphere for comfort throughout the journey.",
     image: "/images/photo3.jpg",
     category: "Exterior",
   },
   {
     id: 4,
-    title: "Master Suite",
+    title: "Private Cabins",
     description:
-      "The master suite offers unparalleled luxury with a private terrace, king-sized bed, and premium amenities.",
+      "Elegant, thoughtfully designed cabins offering hotel-level comfort, plush bedding, and refined interiors—creating a quiet, private sanctuary at sea.",
     image: "/images/photo4.1.jpg",
     category: "Interior",
   },
   {
     id: 5,
-    title: "Lounge Bar",
+    title: "The Yacht Experience",
     description:
-      "Socialize in our sophisticated lounge bar, stocked with premium spirits and fine wines from around the world.",
+      "A seamless connection between luxury and the open sea, where performance, design, and freedom come together for unforgettable journeys.",
     image: "/images/photo5.jpg",
     category: "Interior",
   },
   {
     id: 6,
-    title: "Water Sports",
+    title: "Comfort for Every Moment",
     description:
-      "Access our collection of water toys including jet skis, paddleboards, and diving gear from the rear platform.",
+      "A warm, inviting interior designed for relaxation and quality time, where families can unwind, connect, and feel at home while at sea together in comfort.",
     image: "/images/photo6.jpg",
     category: "Activity",
   },
