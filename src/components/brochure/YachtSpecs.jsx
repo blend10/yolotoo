@@ -103,7 +103,7 @@ const YachtSpecs = () => {
       <div className="w-full lg:w-1/2 h-[400px] lg:h-auto relative">
         {/* FIX 2: Replaced img with Image Component */}
         <Image
-          src="/images/rightImage.png"
+          src="/images/rightImage1.jpg"
           alt="Pier Pressure Yacht in a Bay"
           fill // Fills the container
           className="object-cover"

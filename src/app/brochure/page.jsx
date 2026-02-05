@@ -2,7 +2,7 @@ import Accommodation from "@/components/brochure/Accommodation";
 import GalleryCarousel from "@/components/brochure/GalleryCarousel";
 import StackingFeatures from "@/components/brochure/StackingFeatures";
 import StartPage from "@/components/brochure/StartPage";
-import TeamGrid2 from "@/components/brochure/TeamGrid2";
+import TeamGrid from "@/components/home/TeamGrid";
 import YachtSpecs from "@/components/brochure/YachtSpecs";
 import Planning from "@/components/home/Planning";
 // import TeamGrid from "@/components/home/TeamGrid";
@@ -17,7 +17,7 @@ const page = () => {
       <StackingFeatures />
       <Planning />
       <Accommodation />
-      <TeamGrid2 />
+      <TeamGrid />
     </div>
   );
 };

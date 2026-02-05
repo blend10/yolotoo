@@ -1,5 +1,7 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 const Planning = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,21 +13,33 @@ const Planning = () => {
     } else {
       document.body.style.overflow = "unset";
     }
+    // Cleanup function
+    return () => {
+      document.body.style.overflow = "unset";
+    };
   }, [isModalOpen]);
+
+  // Handle Form Submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Logic to send email goes here
+    alert("Form submitted!");
+    setIsModalOpen(false);
+  };
 
   return (
     <>
       {/* 1. Main Container */}
-      <div className="relative w-[97%] md:w-full max-w-450 h-200 mx-auto rounded-2xl my-20  overflow-hidden">
-        {/* Background Video */}
-        <video
-          src="https://res.cloudinary.com/dc00mvv7f/video/upload/v1770108075/yacht_a3vsag.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-        ></video>
+      <div className="relative w-[97%] md:w-full max-w-450 h-[600px] md:h-[900px]  mx-auto rounded-2xl my-20 overflow-hidden">
+        {/* Background Video/Image */}
+        {/* 'fill' makes it cover the parent container absolutely */}
+        <Image
+          src="/images/videovideo.jpg"
+          alt="Yacht Background"
+          fill
+          className="object-cover -z-10"
+          priority
+        />
 
         {/* Content Wrapper */}
         <div className="absolute bottom-8 left-0 right-0 flex justify-center w-full z-10">
@@ -42,7 +56,7 @@ const Planning = () => {
 
               {/* Description & Button Section */}
               <div className="flex flex-col items-center md:items-end justify-between gap-6 w-full md:w-1/2">
-                <h2 className="text-white max-w-lg">
+                <h2 className="text-white max-w-lg text-center md:text-right">
                   Receive your personalized proposal with recommended yachts,
                   real-time availability & pricing tailored to your travel
                   style.
@@ -63,7 +77,7 @@ const Planning = () => {
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
           {/* Modal Content */}
-          <div className="bg-white w-full max-w-2xl rounded-xl shadow-2xl p-6 md:p-8 animate-scaleIn relative">
+          <div className="bg-white w-full max-w-2xl rounded-xl shadow-2xl p-6 md:p-8 animate-scaleIn relative max-h-[90vh] overflow-y-auto">
             {/* Header */}
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-2xl font-bold text-gray-900">Get In Touch</h3>
@@ -89,7 +103,7 @@ const Planning = () => {
             </div>
 
             {/* Form Fields */}
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               {/* Name */}
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">
@@ -98,6 +112,7 @@ const Planning = () => {
                 <input
                   type="text"
                   placeholder="EX: Eliza"
+                  required
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-gray-600 placeholder-gray-400"
                 />
               </div>
@@ -110,6 +125,7 @@ const Planning = () => {
                 <input
                   type="text"
                   placeholder="EX: Maguire"
+                  required
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-gray-600 placeholder-gray-400"
                 />
               </div>
@@ -121,7 +137,8 @@ const Planning = () => {
                 </label>
                 <input
                   type="email"
-                  placeholder="EX: Eliza Maguire@FlexUI.com"
+                  placeholder="EX: Eliza.Maguire@FlexUI.com"
+                  required
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all text-gray-600 placeholder-gray-400"
                 />
               </div>

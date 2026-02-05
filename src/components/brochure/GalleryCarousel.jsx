@@ -9,19 +9,19 @@ const GalleryCarousel = () => {
     {
       id: 0,
       category: "Exterior",
-      image: "/images/slide1.png",
+      image: "/images/slide11.jpg",
       alt: "Yacht Exterior Front View",
     },
     {
       id: 1,
       category: "Interior",
-      image: "/images/slide2.png",
+      image: "/images/slide22.jpg",
       alt: "Luxury Interior Lounge",
     },
     {
       id: 2,
       category: "Lifestyle",
-      image: "/images/slide3.png",
+      image: "/images/slide33.jpg",
       alt: "Guests Enjoying Water Sports",
     },
   ];
