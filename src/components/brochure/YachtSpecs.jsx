@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image"; // FIX 1: Import Image component
+import Image from "next/image";
 
 const YachtSpecs = () => {
   return (
@@ -101,15 +101,19 @@ const YachtSpecs = () => {
 
       {/* RIGHT PANEL: Image */}
       <div className="w-full lg:w-1/2 h-[400px] lg:h-auto relative">
-        {/* FIX 2: Replaced img with Image Component */}
         <Image
           src="/images/rightImage1.jpg"
           alt="Pier Pressure Yacht in a Bay"
           fill // Fills the container
           className="object-cover"
-          // FIX 4: Accurate sizes
-          // Mobile: 100vw, Desktop: 50vw (half screen)
-          sizes="(max-width: 1024px) 100vw, 50vw"
+          // HIGH FIDELITY SIZES STRATEGY:
+          // Mobile: 100vw
+          // Desktop: It takes 50% of the screen, but we ask for 75vw to force a denser, sharper image.
+          sizes="(max-width: 1024px) 100vw, 75vw"
+          // Max quality for crisp water/sky details
+          quality={100}
+          // Load immediately (LCP optimization)
+          priority
         />
         {/* Optional overlay for better integration if needed */}
         <div className="absolute inset-0 bg-black/10 mix-blend-multiply pointer-events-none"></div>

@@ -9,7 +9,7 @@ const galleryData = [
     title: "Your Private Retreat",
     description:
       "Spacious above-deck cabins designed for ultimate comfort and privacy, featuring elegant interiors, abundant natural light, and panoramic sea views that create a serene onboard escape.",
-    image: "/images/photo1.jpg",
+    image: "/images/private.jpg",
     category: "Exterior",
   },
   {
@@ -150,6 +150,7 @@ const GallerySlider = () => {
 
           <button
             onClick={prevSlide}
+            onDoubleClick={(e) => e.stopPropagation()} // <--- FIX ADDED HERE
             className="absolute z-20 
               top-1/3 -translate-y-1/2 left-4 
               md:top-auto md:translate-y-0 md:bottom-8 md:left-auto md:right-24 
@@ -162,6 +163,7 @@ const GallerySlider = () => {
 
           <button
             onClick={nextSlide}
+            onDoubleClick={(e) => e.stopPropagation()} // <--- FIX ADDED HERE
             className="absolute z-20 
               top-1/3 -translate-y-1/2 right-4 
               md:top-auto md:translate-y-0 md:bottom-8 md:right-8
@@ -192,7 +194,6 @@ const GallerySlider = () => {
                 alt={item.title}
                 fill
                 className="object-cover"
-
                 // Thumbnails don't need extremely high quality, 75-80 is fine
               />
               {currentIndex !== index && (

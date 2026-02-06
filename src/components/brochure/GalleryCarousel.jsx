@@ -97,7 +97,6 @@ const GalleryCarousel = () => {
           onClick={prevSlide}
           className="hidden md:block absolute left-0 w-[15%] h-[60%] cursor-pointer transition-all duration-500 z-10 transform -translate-x-1/2 md:translate-x-0 group"
         >
-          {/* FIX 1: Preview Image Optimization */}
           <div className="relative w-full h-full rounded-xl overflow-hidden">
             <Image
               key={`left-${getLeftIndex(activeIndex)}`}
@@ -105,7 +104,9 @@ const GalleryCarousel = () => {
               alt="Previous"
               fill
               className="object-cover animate-fadeIn"
-              sizes="15vw"
+              // Small preview: 15% width. We ask for 30vw to ensure retina sharpness.
+              sizes="30vw"
+              quality={90}
             />
           </div>
           <div className="mt-4 flex items-center gap-2 text-[#002b45] font-medium text-sm group-hover:opacity-80 transition-opacity">
@@ -119,15 +120,19 @@ const GalleryCarousel = () => {
           className="group relative w-full md:w-[65%] h-full z-20 shadow-2xl rounded-2xl overflow-hidden transform transition-all duration-500 cursor-zoom-in"
           onDoubleClick={() => setIsFullScreen(true)}
         >
-          {/* FIX 2: Main Image Optimization */}
           <Image
             key={`center-${activeIndex}`}
             src={slides[activeIndex].image}
             alt="Active"
             fill
             className="object-cover animate-fadeIn"
-            sizes="(max-width: 768px) 100vw, 65vw"
-            priority // Load the active slide immediately
+            // HIGH FIDELITY STRATEGY:
+            // Desktop slot is 65%. We request 80vw to force double-density (Retina).
+            sizes="(max-width: 768px) 100vw, 80vw"
+            // Max quality
+            quality={100}
+            // Priority is crucial for the center image
+            priority
           />
 
           {/* HINT OVERLAY */}
@@ -147,7 +152,6 @@ const GalleryCarousel = () => {
           onClick={nextSlide}
           className="hidden md:block absolute right-0 w-[15%] h-[60%] cursor-pointer transition-all duration-500 z-10 group"
         >
-          {/* FIX 3: Preview Image Optimization */}
           <div className="relative w-full h-full rounded-xl overflow-hidden">
             <Image
               key={`right-${getRightIndex(activeIndex)}`}
@@ -155,7 +159,9 @@ const GalleryCarousel = () => {
               alt="Next"
               fill
               className="object-cover animate-fadeIn"
-              sizes="15vw"
+              // Small preview: 15% width. We ask for 30vw to ensure retina sharpness.
+              sizes="30vw"
+              quality={90}
             />
           </div>
           <div className="mt-4 flex items-center justify-start gap-2 text-[#002b45] font-medium text-sm group-hover:opacity-80 transition-opacity">
@@ -171,7 +177,7 @@ const GalleryCarousel = () => {
             className="p-2 bg-white/80 rounded-full shadow-lg active:scale-95 transition-transform"
           >
             <Image
-              src="images/arrow22.svg"
+              src="/images/arrow22.svg"
               alt="arrow"
               width={18}
               height={18}
@@ -183,7 +189,7 @@ const GalleryCarousel = () => {
             className="p-2 bg-white/80 rounded-full shadow-lg active:scale-95 transition-transform"
           >
             <Image
-              src="images/arrow22.svg"
+              src="/images/arrow22.svg"
               alt="arrow"
               width={18}
               height={18}
@@ -203,13 +209,14 @@ const GalleryCarousel = () => {
           </button>
 
           <div className="relative w-full h-full flex items-center justify-center p-4 md:p-12">
-            {/* FIX 4: Unoptimized for Full Screen Zoom */}
             <Image
               src={slides[activeIndex].image}
               alt={slides[activeIndex].alt}
               fill
               className="object-contain shadow-2xl rounded-lg"
-              unoptimized={true}
+              // Full Screen Optimization
+              sizes="100vw"
+              quality={100}
               priority
             />
 

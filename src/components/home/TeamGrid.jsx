@@ -8,35 +8,30 @@ const TeamGrid = () => {
       name: "Javi",
       role: "Captain",
       image: "/images/person1.jpg",
-      // bio: "...",
     },
     {
       id: 2,
       name: "Kathe",
       role: "Stewardess",
       image: "/images/person2.jpg",
-      // bio: "...",
     },
     {
       id: 3,
       name: "Moises",
       role: "Chef",
       image: "/images/person3.jpg",
-      // bio: "...",
     },
     {
       id: 4,
       name: "Hamza",
       role: "Stewardess",
       image: "/images/person4.jpg",
-      // bio: "...",
     },
     {
       id: 5,
       name: "Diego",
       role: "Engineer",
       image: "/images/person5.jpg",
-      // bio: "...",
     },
   ];
 
@@ -57,7 +52,7 @@ const TeamGrid = () => {
         </div>
 
         {/* Team Members Grid (Static Display) */}
-        {teamMembers.map((member) => (
+        {teamMembers.map((member, index) => (
           <div
             key={member.id}
             // CHANGED: h-[500px] on mobile, h-[750px] on desktop (md and up)
@@ -68,7 +63,14 @@ const TeamGrid = () => {
               alt={member.name}
               fill
               className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 33vw"
+              // HIGH FIDELITY SIZES STRATEGY:
+              // Mobile/Tablet (1 col): Request full 100vw width
+              // Desktop (3 cols): Request 50vw (instead of 33vw) to ensure crispness on Retina screens
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              // Max quality to remove blur/artifacts
+              quality={100}
+              // Load the first 2 images immediately (optimization for 'above the fold')
+              priority={index < 2}
             />
 
             {/* Content Overlay */}
