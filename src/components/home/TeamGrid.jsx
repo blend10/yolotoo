@@ -24,7 +24,7 @@ const TeamGrid = () => {
     {
       id: 4,
       name: "Hamza",
-      role: "Stewardess",
+      role: "Steward",
       image: "/images/person4.jpg",
     },
     {
