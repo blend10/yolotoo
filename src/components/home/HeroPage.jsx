@@ -45,7 +45,7 @@ const HeroPage = () => {
   return (
     <div className="h-screen w-full overflow-hidden">
       <video
-        src="https://res.cloudinary.com/dc00mvv7f/video/upload/v1770108021/heroVideo_gislco.mp4"
+        src="/videos/video1.mp4"
         className="absolute inset-0 h-full w-full object-cover"
         autoPlay
         loop

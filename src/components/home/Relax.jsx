@@ -21,7 +21,7 @@ const Relax = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             <div className="w-full h-[240px] sm:h-[300px] md:h-[340px] rounded-2xl overflow-hidden relative">
               <video
-                src="https://res.cloudinary.com/dc00mvv7f/video/upload/v1770108028/video22_euvi1q.mp4"
+                src="/videos/video2.mp4"
                 className="w-full h-full object-cover"
                 autoPlay
                 muted
@@ -80,7 +80,7 @@ const Relax = () => {
             />
             <div className="w-full h-[240px] sm:h-[300px] md:h-[340px] rounded-2xl overflow-hidden relative">
               <video
-                src="https://res.cloudinary.com/dc00mvv7f/video/upload/v1770108041/video33_p6y1o6.mp4"
+                src="/videos/video3.mp4"
                 className="w-full h-full object-cover"
                 autoPlay
                 muted
